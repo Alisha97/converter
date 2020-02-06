@@ -10,7 +10,8 @@
  */
 public class ConverterTool extends javax.swing.JFrame {
 
-    /**
+    double degree = 10000;
+/**
      * Creates new form ConverterTool
      */
     public ConverterTool() {
@@ -335,12 +336,15 @@ public class ConverterTool extends javax.swing.JFrame {
  *  Conversion methods below
  *  14 methods, 2 for each pair of units
 ********************************************************* */
+//double degree = 10000;
+    
 private float convertF2C (String FAsStr)
 {  // Convert farenheit to celsius
    float farenheit, celsius;
    farenheit = (Float.valueOf(FAsStr).floatValue());
    celsius = (float) ( ( (farenheit-32.0) * 5.0) / 9.0);
-  
+   celsius= (float) (Math.round(celsius * degree) / degree);
+   
    return (celsius);
 }
 
@@ -349,6 +353,8 @@ private float convertC2F (String CAsStr)
    float celsius, fahrenheit;
    celsius = (Float.valueOf (CAsStr).floatValue ());
    fahrenheit = (float) ( (celsius * 9.0 / 5.0) + 32.0);
+   fahrenheit= (float) (Math.round(fahrenheit * degree) / degree);
+
    
    return(fahrenheit);
 }
@@ -359,13 +365,15 @@ private float convertIn2Cm (String inAsStr)
    float inches, centimeters; 
    inches = (Float.valueOf (inAsStr).floatValue ());
    centimeters = (float) (inches * 2.54);
+   centimeters= (float) (Math.round(centimeters * degree) / degree);
+
    
    return(centimeters);
 }
 
 private float convertCm2In (String cmAsStr)
 {  // Convert centimeters to inches
-   float centimeters, inches; // temporary variables
+   float centimeters, inches;
    centimeters = (Float.valueOf (cmAsStr).floatValue ());
    inches = (float) (centimeters * 0.3937);
    
@@ -378,6 +386,8 @@ private float convertF2M (String ftAsStr)
    float feet, meters;
    feet = (Float.valueOf (ftAsStr).floatValue ());
    meters = (float) (feet * 0.3048);
+   meters= (float) (Math.round(meters * degree) / degree);
+
    
    return(meters);
 }
@@ -387,6 +397,8 @@ private float convertM2F (String mAsStr)
    float meters, feet;
    meters = (Float.valueOf (mAsStr).floatValue ());
    feet = (float) (meters / 0.6048);
+   feet= (float) (Math.round(feet * degree) / degree);
+
    
    return(feet);
 }
@@ -397,6 +409,8 @@ private float convertM2K (String miAsStr)
    float miles, kilometers;
    miles = (Float.valueOf (miAsStr).floatValue ());
    kilometers = (float) (miles * 1.609);
+   kilometers= (float) (Math.round(kilometers * degree) / degree);
+
 
    return(kilometers);
 }
@@ -406,6 +420,8 @@ private float convertK2M (String kmAsStr)
    float kilometers, miles;
    kilometers = (Float.valueOf (kmAsStr).floatValue ());
    miles = (float) (kilometers * 0.6214);
+   miles= (float) (Math.round(miles * degree) / degree);
+
 
    return(miles);
 }
@@ -416,6 +432,8 @@ private float convertG2L (String galAsStr)
    float gallons, liters;
    gallons = (Float.valueOf (galAsStr).floatValue ());
    liters = (float) (gallons * 3.785);
+   liters= (float) (Math.round(liters * degree) / degree);
+
 
    return(liters);
 }
@@ -425,6 +443,8 @@ private float convertL2G (String LAsStr)
    float liters, gallons;
    liters = (Float.valueOf (LAsStr).floatValue ());
    gallons = (float) (liters / 3.785);
+   gallons= (float) (Math.round(gallons * degree) / degree);
+
   
    return(gallons);
 }
@@ -435,6 +455,8 @@ private float convertOz2G (String ozAsStr)
    float ounces, grams;
    ounces = (Float.valueOf (ozAsStr).floatValue ());
    grams = (float) (ounces * 28.35);
+   grams= (float) (Math.round(grams * degree) / degree);
+
 
    return(grams);
 }
@@ -444,6 +466,8 @@ private float convertG2Oz (String gAsStr)
    float grams, ounces;
    grams = (Float.valueOf (gAsStr).floatValue ());
    ounces = (float) (grams / 28.35);
+   ounces= (float) (Math.round(ounces * degree) / degree);
+
 
    return(ounces);
 }
@@ -454,6 +478,8 @@ private float convertLb2K (String lbAsStr)
    float pounds, kilograms;
    pounds = (Float.valueOf (lbAsStr).floatValue ());
    kilograms = (float) (pounds * 0.4536);
+   kilograms= (float) (Math.round(kilograms * degree) / degree);
+
 
    return(kilograms);
 }
@@ -463,6 +489,8 @@ private float convertK2Lb (String kgAsStr)
    float kilograms, pounds;
    kilograms = (Float.valueOf (kgAsStr).floatValue ());
    pounds = (float) (kilograms * 2.205);
+   pounds= (float) (Math.round(pounds * degree) / degree);
+
 
    return(pounds);
 }
