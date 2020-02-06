@@ -327,6 +327,10 @@ public class ConverterTool extends javax.swing.JFrame {
         convertedValue.setText("0");
     }//GEN-LAST:event_jButton2ActionPerformed
 
+
+
+//Refactor the conversion methods below!!
+
 /** *****************************************************
  *  Conversion methods below
  *  14 methods, 2 for each pair of units
