@@ -361,23 +361,23 @@ public class ConverterTool extends javax.swing.JFrame {
     private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
         if (jSlider1.getValue() == 0) {
             baseValue.setText(String.format("%.0f", Double.parseDouble(baseValue.getText())));
-            convertedValue.setText(String.format("%.0f", Double.parseDouble(baseValue.getText())));
+            convertedValue.setText(String.format("%.0f", Double.parseDouble(convertedValue.getText())));
         }
         else if (jSlider1.getValue() == 1) {
             baseValue.setText(String.format("%.1f", Double.parseDouble(baseValue.getText())));
-            convertedValue.setText(String.format("%.1f", Double.parseDouble(baseValue.getText())));
+            convertedValue.setText(String.format("%.1f", Double.parseDouble(convertedValue.getText())));
         }
         else if (jSlider1.getValue() == 2) {
             baseValue.setText(String.format("%.2f", Double.parseDouble(baseValue.getText())));
-            convertedValue.setText(String.format("%.2f", Double.parseDouble(baseValue.getText())));
+            convertedValue.setText(String.format("%.2f", Double.parseDouble(convertedValue.getText())));
         }
         else if (jSlider1.getValue() == 3) {
             baseValue.setText(String.format("%.3f", Double.parseDouble(baseValue.getText())));
-            convertedValue.setText(String.format("%.3f", Double.parseDouble(baseValue.getText())));
+            convertedValue.setText(String.format("%.3f", Double.parseDouble(convertedValue.getText())));
         }
         else {
             baseValue.setText(String.format("%.4f", Double.parseDouble(baseValue.getText())));
-            convertedValue.setText(String.format("%.4f", Double.parseDouble(baseValue.getText())));
+            convertedValue.setText(String.format("%.4f", Double.parseDouble(convertedValue.getText())));
         }
     }//GEN-LAST:event_jSlider1StateChanged
 
