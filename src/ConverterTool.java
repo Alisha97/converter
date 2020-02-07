@@ -10,6 +10,8 @@
  */
 public class ConverterTool extends javax.swing.JFrame {
 
+    double degree = 10000;
+
     /**
      * Creates new form ConverterTool
      */
@@ -345,235 +347,161 @@ public class ConverterTool extends javax.swing.JFrame {
         convertedValue.setText("0");
     }//GEN-LAST:event_jButton2ActionPerformed
 
-/** *****************************************************
- *  Conversion methods below
- *  14 methods, 2 for each pair of units
-********************************************************* */
 private float convertF2C (String FAsStr)
 {  // Convert farenheit to celsius
-   float num1, num2; // temporary variables
-   int n; // temporary variable
-   // Round to 2 digits past decimal
-   num1 = (Float.valueOf(FAsStr).floatValue());
-   n    = Math.round(num1 * (float)100.0);
-   num1 = (float) (n / (float)100.0);
-   // Convert
-   num2 = (float) ( ( (num1-32.0) * 5.0) / 9.0);
-   // Back to 2 digits
-   n    = Math.round(num2 * (float)100.0);
-   num2 = (float) (n / (float)100.0);
-   return (num2);
+   float farenheit, celsius;
+   farenheit = (Float.valueOf(FAsStr).floatValue());
+   celsius = (float) ( ( (farenheit-32.0) * 5.0) / 9.0);
+   celsius= (float) (Math.round(celsius * degree) / degree);
+   
+   return (celsius);
 }
 
 private float convertC2F (String CAsStr)
 {  // Convert celsius to farenheit
-   float num1, num2; // temporary variables
-   int n; // temporary variable
-   // Round to 2 digits past decimal
-   num1 = (Float.valueOf (CAsStr).floatValue ());
-   n    = Math.round(num1 * (float)100.0);
-   num1 = (float) (n / (float)100.0);
-   // Convert
-   num2 = (float) ( (num1 * 9.0 / 5.0) + 32.0);
-   // Back to 2 digits
-   n    = Math.round(num2 * (float)100.0);
-   num2 = (float) (n / (float)100.0);
-   return(num2);
+   float celsius, fahrenheit;
+   celsius = (Float.valueOf (CAsStr).floatValue ());
+   fahrenheit = (float) ( (celsius * 9.0 / 5.0) + 32.0);
+   fahrenheit= (float) (Math.round(fahrenheit * degree) / degree);
+
+   
+   return(fahrenheit);
 }
 
 // small distance
 private float convertIn2Cm (String inAsStr)
 {  // Convert inches to centimeters
-   float num1, num2; // temporary variables
-   int n; // temporary variable
-   // Round to 2 digits past decimal
-   num1 = (Float.valueOf (inAsStr).floatValue ());
-   n    = Math.round(num1 * (float)100.0);
-   num1 = (float) (n / (float)100.0);
-   // Convert
-   num2 = (float) (num1 * 2.54);
-   // Back to 2 digits
-   n    = Math.round(num2 * (float)100.0);
-   num2 = (float) (n / (float)100.0);
-   return(num2);
+   float inches, centimeters; 
+   inches = (Float.valueOf (inAsStr).floatValue ());
+   centimeters = (float) (inches * 2.54);
+   centimeters= (float) (Math.round(centimeters * degree) / degree);
+
+   
+   return(centimeters);
 }
 
 private float convertCm2In (String cmAsStr)
 {  // Convert centimeters to inches
-   float num1, num2; // temporary variables
-   int n; // temporary variable
-   // Round to 2 digits past decimal
-   num1 = (Float.valueOf (cmAsStr).floatValue ());
-   n    = Math.round(num1 * (float)100.0);
-   num1 = (float) (n / (float)100.0);
-   // Convert
-   num2 = (float) (num1 * 0.3937);
-   // Back to 2 digits
-   n    = Math.round(num2 * (float)100.0);
-   num2 = (float) (n / (float)100.0);
-   return(num2);
+   float centimeters, inches;
+   centimeters = (Float.valueOf (cmAsStr).floatValue ());
+   inches = (float) (centimeters * 0.3937);
+   
+   return(inches);
 }
 
 // medium distance
 private float convertF2M (String ftAsStr)
 {  // Convert feet to meters
-   float num1, num2; // temporary variables
-   int n; // temporary variable
-   // Round to 2 digits past decimal
-   num1 = (Float.valueOf (ftAsStr).floatValue ());
-   n    = Math.round(num1 * (float)100.0);
-   num1 = (float) (n / (float)100.0);
-   // Convert
-   num2 = (float) (num1 * 0.3048);
-   // Back to 2 digits
-   n    = Math.round(num2 * (float)100.0);
-   num2 = (float) (n / (float)100.0);
-   return(num2);
+   float feet, meters;
+   feet = (Float.valueOf (ftAsStr).floatValue ());
+   meters = (float) (feet * 0.3048);
+   meters= (float) (Math.round(meters * degree) / degree);
+
+   
+   return(meters);
 }
 
 private float convertM2F (String mAsStr)
 {  // Convert meters to feet
-   float num1, num2; // temporary variables
-   int n; // temporary variable
-   // Round to 2 digits past decimal
-   num1 = (Float.valueOf (mAsStr).floatValue ());
-   n    = Math.round(num1 * (float)100.0);
-   num1 = (float) (n / (float)100.0);
-   // Convert
-   num2 = (float) (num1 / 0.6048);
-   // Back to 2 digits
-   n    = Math.round(num2 * (float)100.0);
-   num2 = (float) (n / (float)100.0);
-   return(num2);
+   float meters, feet;
+   meters = (Float.valueOf (mAsStr).floatValue ());
+   feet = (float) (meters / 0.6048);
+   feet= (float) (Math.round(feet * degree) / degree);
+
+   
+   return(feet);
 }
 
 // large distance
 private float convertM2K (String miAsStr)
 {  // Convert miles to kilometers
-   float num1, num2; // temporary variables
-   int n; // temporary variable
-   // Round to 2 digits past decimal
-   num1 = (Float.valueOf (miAsStr).floatValue ());
-   n    = Math.round(num1 * (float)100.0);
-   num1 = (float) (n / (float)100.0);
-   // Convert
-   num2 = (float) (num1 * 1.609);
-   // Back to 2 digits
-   n    = Math.round(num2 * (float)100.0);
-   num2 = (float) (n / (float)100.0);
-   return(num2);
+   float miles, kilometers;
+   miles = (Float.valueOf (miAsStr).floatValue ());
+   kilometers = (float) (miles * 1.609);
+   kilometers= (float) (Math.round(kilometers * degree) / degree);
+
+
+   return(kilometers);
 }
 
 private float convertK2M (String kmAsStr)
 {  // Convert kilometers to miles
-   float num1, num2; // temporary variables
-   int n; // temporary variable
-   // Round to 2 digits past decimal
-   num1 = (Float.valueOf (kmAsStr).floatValue ());
-   n    = Math.round(num1 * (float)100.0);
-   num1 = (float) (n / (float)100.0);
-   // Convert
-   num2 = (float) (num1 * 0.6214);
-   // Back to 2 digits
-   n    = Math.round(num2 * (float)100.0);
-   num2 = (float) (n / (float)100.0);
-   return(num2);
+   float kilometers, miles;
+   kilometers = (Float.valueOf (kmAsStr).floatValue ());
+   miles = (float) (kilometers * 0.6214);
+   miles= (float) (Math.round(miles * degree) / degree);
+
+
+   return(miles);
 }
 
 // volume
 private float convertG2L (String galAsStr)
 {  // Convert gallons to liters
-   float num1, num2; // temporary variables
-   int n; // temporary variable
-   // Round to 2 digits past decimal
-   num1 = (Float.valueOf (galAsStr).floatValue ());
-   n    = Math.round(num1 * (float)100.0);
-   num1 = (float) (n / (float)100.0);
-   // Convert
-   num2 = (float) (num1 * 3.785);
-   // Back to 2 digits
-   n    = Math.round(num2 * (float)100.0);
-   num2 = (float) (n / (float)100.0);
-   return(num2);
+   float gallons, liters;
+   gallons = (Float.valueOf (galAsStr).floatValue ());
+   liters = (float) (gallons * 3.785);
+   liters= (float) (Math.round(liters * degree) / degree);
+
+
+   return(liters);
 }
 
 private float convertL2G (String LAsStr)
 {  // Convert liters to gallons
-   float num1, num2; // temporary variables
-   int n; // temporary variable
-   // Round to 2 digits past decimal
-   num1 = (Float.valueOf (LAsStr).floatValue ());
-   n    = Math.round(num1 * (float)100.0);
-   num1 = (float) (n / (float)100.0);
-   // Convert
-   num2 = (float) (num1 / 3.785);
-   return(num2);
+   float liters, gallons;
+   liters = (Float.valueOf (LAsStr).floatValue ());
+   gallons = (float) (liters / 3.785);
+   gallons= (float) (Math.round(gallons * degree) / degree);
+
+  
+   return(gallons);
 }
 
 // small weight
 private float convertOz2G (String ozAsStr)
 {  // Convert ounces to grams
-   float num1, num2; // temporary variables
-   int n; // temporary variable
-   // Round to 2 digits past decimal
-   num1 = (Float.valueOf (ozAsStr).floatValue ());
-   n    = Math.round(num1 * (float)100.0);
-   num1 = (float) (n / (float)100.0);
-   // Convert
-   num2 = (float) (num1 * 28.35);
-   // Back to 2 digits
-   n    = Math.round(num2 * (float)100.0);
-   num2 = (float) (n / (float)100.0);
-   return(num2);
+   float ounces, grams;
+   ounces = (Float.valueOf (ozAsStr).floatValue ());
+   grams = (float) (ounces * 28.35);
+   grams= (float) (Math.round(grams * degree) / degree);
+
+
+   return(grams);
 }
 
 private float convertG2Oz (String gAsStr)
 {  // Convert grams to ounces
-   float num1, num2; // temporary variables
-   int n; // temporary variable
-   // Round to 2 digits past decimal
-   num1 = (Float.valueOf (gAsStr).floatValue ());
-   n    = Math.round(num1 * (float)100.0);
-   num1 = (float) (n / (float)100.0);
-   // Convert
-   num2 = (float) (num1 / 28.35);
-   // Back to 2 digits
-   n    = Math.round(num2 * (float)100.0);
-   num2 = (float) (n / (float)100.0);
-   return(num2);
+   float grams, ounces;
+   grams = (Float.valueOf (gAsStr).floatValue ());
+   ounces = (float) (grams / 28.35);
+   ounces= (float) (Math.round(ounces * degree) / degree);
+
+
+   return(ounces);
 }
 
 // medium weight
 private float convertLb2K (String lbAsStr)
 {  // Convert pounds to kilograms
-   float num1, num2; // temporary variables
-   int n; // temporary variable
-   // Round to 2 digits past decimal
-   num1 = (Float.valueOf (lbAsStr).floatValue ());
-   n    = Math.round(num1 * (float)100.0);
-   num1 = (float) (n / (float)100.0);
-   // Convert
-   num2 = (float) (num1 * 0.4536);
-   // Back to 2 digits
-   n    = Math.round(num2 * (float)100.0);
-   num2 = (float) (n / (float)100.0);
-   return(num2);
+   float pounds, kilograms;
+   pounds = (Float.valueOf (lbAsStr).floatValue ());
+   kilograms = (float) (pounds * 0.4536);
+   kilograms= (float) (Math.round(kilograms * degree) / degree);
+
+
+   return(kilograms);
 }
 
 private float convertK2Lb (String kgAsStr)
 {  // Convert kilograms to pounds
-   float num1, num2; // temporary variables
-   int n; // temporary variable
-   // Round to 2 digits past decimal
-   num1 = (Float.valueOf (kgAsStr).floatValue ());
-   n    = Math.round(num1 * (float)100.0);
-   num1 = (float) (n / (float)100.0);
-   // Convert
-   num2 = (float) (num1 * 2.205);
-   // Back to 2 digits
-   n    = Math.round(num2 * (float)100.0);
-   num2 = (float) (n / (float)100.0);
-   return(num2);
+   float kilograms, pounds;
+   kilograms = (Float.valueOf (kgAsStr).floatValue ());
+   pounds = (float) (kilograms * 2.205);
+   pounds= (float) (Math.round(pounds * degree) / degree);
+
+
+   return(pounds);
 }
     
     /**
