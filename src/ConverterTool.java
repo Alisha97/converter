@@ -303,7 +303,7 @@ public class ConverterTool extends javax.swing.JFrame {
      */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //switch text fields
-	System.out.println(tempString);
+	String tempString= units.getSelectedItem().toString();
 	if(tempString.equals("Select Base Unit")){
 		unitsCon.setText(" ");
 	}
