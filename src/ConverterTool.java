@@ -10,8 +10,7 @@
  */
 public class ConverterTool extends javax.swing.JFrame {
 
-    double degree = 10000;
-/**
+    /**
      * Creates new form ConverterTool
      */
     public ConverterTool() {
@@ -36,6 +35,7 @@ public class ConverterTool extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jSlider1 = new javax.swing.JSlider();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,34 +89,46 @@ public class ConverterTool extends javax.swing.JFrame {
             }
         });
 
+        jSlider1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jSlider1.setMajorTickSpacing(1);
+        jSlider1.setMaximum(4);
+        jSlider1.setPaintLabels(true);
+        jSlider1.setPaintTicks(true);
+        jSlider1.setPreferredSize(new java.awt.Dimension(300, 56));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(451, 451, 451))
             .addGroup(layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(units, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(unitsCon, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(convertedValue, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
-                            .addComponent(baseValue))
-                        .addGap(28, 28, 28))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel1))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(units, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(unitsCon, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(convertedValue, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
+                            .addComponent(baseValue)
+                            .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(431, 431, 431))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,17 +141,22 @@ public class ConverterTool extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(units, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(baseValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(17, 17, 17)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(convertedValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(unitsCon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addGap(50, 50, 50)
                 .addComponent(jButton2)
-                .addGap(87, 87, 87))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         pack();
@@ -328,171 +345,235 @@ public class ConverterTool extends javax.swing.JFrame {
         convertedValue.setText("0");
     }//GEN-LAST:event_jButton2ActionPerformed
 
-
-
-//Refactor the conversion methods below!!
-
 /** *****************************************************
  *  Conversion methods below
  *  14 methods, 2 for each pair of units
 ********************************************************* */
-//double degree = 10000;
-    
 private float convertF2C (String FAsStr)
 {  // Convert farenheit to celsius
-   float farenheit, celsius;
-   farenheit = (Float.valueOf(FAsStr).floatValue());
-   celsius = (float) ( ( (farenheit-32.0) * 5.0) / 9.0);
-   celsius= (float) (Math.round(celsius * degree) / degree);
-   
-   return (celsius);
+   float num1, num2; // temporary variables
+   int n; // temporary variable
+   // Round to 2 digits past decimal
+   num1 = (Float.valueOf(FAsStr).floatValue());
+   n    = Math.round(num1 * (float)100.0);
+   num1 = (float) (n / (float)100.0);
+   // Convert
+   num2 = (float) ( ( (num1-32.0) * 5.0) / 9.0);
+   // Back to 2 digits
+   n    = Math.round(num2 * (float)100.0);
+   num2 = (float) (n / (float)100.0);
+   return (num2);
 }
 
 private float convertC2F (String CAsStr)
 {  // Convert celsius to farenheit
-   float celsius, fahrenheit;
-   celsius = (Float.valueOf (CAsStr).floatValue ());
-   fahrenheit = (float) ( (celsius * 9.0 / 5.0) + 32.0);
-   fahrenheit= (float) (Math.round(fahrenheit * degree) / degree);
-
-   
-   return(fahrenheit);
+   float num1, num2; // temporary variables
+   int n; // temporary variable
+   // Round to 2 digits past decimal
+   num1 = (Float.valueOf (CAsStr).floatValue ());
+   n    = Math.round(num1 * (float)100.0);
+   num1 = (float) (n / (float)100.0);
+   // Convert
+   num2 = (float) ( (num1 * 9.0 / 5.0) + 32.0);
+   // Back to 2 digits
+   n    = Math.round(num2 * (float)100.0);
+   num2 = (float) (n / (float)100.0);
+   return(num2);
 }
 
 // small distance
 private float convertIn2Cm (String inAsStr)
 {  // Convert inches to centimeters
-   float inches, centimeters; 
-   inches = (Float.valueOf (inAsStr).floatValue ());
-   centimeters = (float) (inches * 2.54);
-   centimeters= (float) (Math.round(centimeters * degree) / degree);
-
-   
-   return(centimeters);
+   float num1, num2; // temporary variables
+   int n; // temporary variable
+   // Round to 2 digits past decimal
+   num1 = (Float.valueOf (inAsStr).floatValue ());
+   n    = Math.round(num1 * (float)100.0);
+   num1 = (float) (n / (float)100.0);
+   // Convert
+   num2 = (float) (num1 * 2.54);
+   // Back to 2 digits
+   n    = Math.round(num2 * (float)100.0);
+   num2 = (float) (n / (float)100.0);
+   return(num2);
 }
 
 private float convertCm2In (String cmAsStr)
 {  // Convert centimeters to inches
-   float centimeters, inches;
-   centimeters = (Float.valueOf (cmAsStr).floatValue ());
-   inches = (float) (centimeters * 0.3937);
-   
-   return(inches);
+   float num1, num2; // temporary variables
+   int n; // temporary variable
+   // Round to 2 digits past decimal
+   num1 = (Float.valueOf (cmAsStr).floatValue ());
+   n    = Math.round(num1 * (float)100.0);
+   num1 = (float) (n / (float)100.0);
+   // Convert
+   num2 = (float) (num1 * 0.3937);
+   // Back to 2 digits
+   n    = Math.round(num2 * (float)100.0);
+   num2 = (float) (n / (float)100.0);
+   return(num2);
 }
 
 // medium distance
 private float convertF2M (String ftAsStr)
 {  // Convert feet to meters
-   float feet, meters;
-   feet = (Float.valueOf (ftAsStr).floatValue ());
-   meters = (float) (feet * 0.3048);
-   meters= (float) (Math.round(meters * degree) / degree);
-
-   
-   return(meters);
+   float num1, num2; // temporary variables
+   int n; // temporary variable
+   // Round to 2 digits past decimal
+   num1 = (Float.valueOf (ftAsStr).floatValue ());
+   n    = Math.round(num1 * (float)100.0);
+   num1 = (float) (n / (float)100.0);
+   // Convert
+   num2 = (float) (num1 * 0.3048);
+   // Back to 2 digits
+   n    = Math.round(num2 * (float)100.0);
+   num2 = (float) (n / (float)100.0);
+   return(num2);
 }
 
 private float convertM2F (String mAsStr)
 {  // Convert meters to feet
-   float meters, feet;
-   meters = (Float.valueOf (mAsStr).floatValue ());
-   feet = (float) (meters / 0.6048);
-   feet= (float) (Math.round(feet * degree) / degree);
-
-   
-   return(feet);
+   float num1, num2; // temporary variables
+   int n; // temporary variable
+   // Round to 2 digits past decimal
+   num1 = (Float.valueOf (mAsStr).floatValue ());
+   n    = Math.round(num1 * (float)100.0);
+   num1 = (float) (n / (float)100.0);
+   // Convert
+   num2 = (float) (num1 / 0.6048);
+   // Back to 2 digits
+   n    = Math.round(num2 * (float)100.0);
+   num2 = (float) (n / (float)100.0);
+   return(num2);
 }
 
 // large distance
 private float convertM2K (String miAsStr)
 {  // Convert miles to kilometers
-   float miles, kilometers;
-   miles = (Float.valueOf (miAsStr).floatValue ());
-   kilometers = (float) (miles * 1.609);
-   kilometers= (float) (Math.round(kilometers * degree) / degree);
-
-
-   return(kilometers);
+   float num1, num2; // temporary variables
+   int n; // temporary variable
+   // Round to 2 digits past decimal
+   num1 = (Float.valueOf (miAsStr).floatValue ());
+   n    = Math.round(num1 * (float)100.0);
+   num1 = (float) (n / (float)100.0);
+   // Convert
+   num2 = (float) (num1 * 1.609);
+   // Back to 2 digits
+   n    = Math.round(num2 * (float)100.0);
+   num2 = (float) (n / (float)100.0);
+   return(num2);
 }
 
 private float convertK2M (String kmAsStr)
 {  // Convert kilometers to miles
-   float kilometers, miles;
-   kilometers = (Float.valueOf (kmAsStr).floatValue ());
-   miles = (float) (kilometers * 0.6214);
-   miles= (float) (Math.round(miles * degree) / degree);
-
-
-   return(miles);
+   float num1, num2; // temporary variables
+   int n; // temporary variable
+   // Round to 2 digits past decimal
+   num1 = (Float.valueOf (kmAsStr).floatValue ());
+   n    = Math.round(num1 * (float)100.0);
+   num1 = (float) (n / (float)100.0);
+   // Convert
+   num2 = (float) (num1 * 0.6214);
+   // Back to 2 digits
+   n    = Math.round(num2 * (float)100.0);
+   num2 = (float) (n / (float)100.0);
+   return(num2);
 }
 
 // volume
 private float convertG2L (String galAsStr)
 {  // Convert gallons to liters
-   float gallons, liters;
-   gallons = (Float.valueOf (galAsStr).floatValue ());
-   liters = (float) (gallons * 3.785);
-   liters= (float) (Math.round(liters * degree) / degree);
-
-
-   return(liters);
+   float num1, num2; // temporary variables
+   int n; // temporary variable
+   // Round to 2 digits past decimal
+   num1 = (Float.valueOf (galAsStr).floatValue ());
+   n    = Math.round(num1 * (float)100.0);
+   num1 = (float) (n / (float)100.0);
+   // Convert
+   num2 = (float) (num1 * 3.785);
+   // Back to 2 digits
+   n    = Math.round(num2 * (float)100.0);
+   num2 = (float) (n / (float)100.0);
+   return(num2);
 }
 
 private float convertL2G (String LAsStr)
 {  // Convert liters to gallons
-   float liters, gallons;
-   liters = (Float.valueOf (LAsStr).floatValue ());
-   gallons = (float) (liters / 3.785);
-   gallons= (float) (Math.round(gallons * degree) / degree);
-
-  
-   return(gallons);
+   float num1, num2; // temporary variables
+   int n; // temporary variable
+   // Round to 2 digits past decimal
+   num1 = (Float.valueOf (LAsStr).floatValue ());
+   n    = Math.round(num1 * (float)100.0);
+   num1 = (float) (n / (float)100.0);
+   // Convert
+   num2 = (float) (num1 / 3.785);
+   return(num2);
 }
 
 // small weight
 private float convertOz2G (String ozAsStr)
 {  // Convert ounces to grams
-   float ounces, grams;
-   ounces = (Float.valueOf (ozAsStr).floatValue ());
-   grams = (float) (ounces * 28.35);
-   grams= (float) (Math.round(grams * degree) / degree);
-
-
-   return(grams);
+   float num1, num2; // temporary variables
+   int n; // temporary variable
+   // Round to 2 digits past decimal
+   num1 = (Float.valueOf (ozAsStr).floatValue ());
+   n    = Math.round(num1 * (float)100.0);
+   num1 = (float) (n / (float)100.0);
+   // Convert
+   num2 = (float) (num1 * 28.35);
+   // Back to 2 digits
+   n    = Math.round(num2 * (float)100.0);
+   num2 = (float) (n / (float)100.0);
+   return(num2);
 }
 
 private float convertG2Oz (String gAsStr)
 {  // Convert grams to ounces
-   float grams, ounces;
-   grams = (Float.valueOf (gAsStr).floatValue ());
-   ounces = (float) (grams / 28.35);
-   ounces= (float) (Math.round(ounces * degree) / degree);
-
-
-   return(ounces);
+   float num1, num2; // temporary variables
+   int n; // temporary variable
+   // Round to 2 digits past decimal
+   num1 = (Float.valueOf (gAsStr).floatValue ());
+   n    = Math.round(num1 * (float)100.0);
+   num1 = (float) (n / (float)100.0);
+   // Convert
+   num2 = (float) (num1 / 28.35);
+   // Back to 2 digits
+   n    = Math.round(num2 * (float)100.0);
+   num2 = (float) (n / (float)100.0);
+   return(num2);
 }
 
 // medium weight
 private float convertLb2K (String lbAsStr)
 {  // Convert pounds to kilograms
-   float pounds, kilograms;
-   pounds = (Float.valueOf (lbAsStr).floatValue ());
-   kilograms = (float) (pounds * 0.4536);
-   kilograms= (float) (Math.round(kilograms * degree) / degree);
-
-
-   return(kilograms);
+   float num1, num2; // temporary variables
+   int n; // temporary variable
+   // Round to 2 digits past decimal
+   num1 = (Float.valueOf (lbAsStr).floatValue ());
+   n    = Math.round(num1 * (float)100.0);
+   num1 = (float) (n / (float)100.0);
+   // Convert
+   num2 = (float) (num1 * 0.4536);
+   // Back to 2 digits
+   n    = Math.round(num2 * (float)100.0);
+   num2 = (float) (n / (float)100.0);
+   return(num2);
 }
 
 private float convertK2Lb (String kgAsStr)
 {  // Convert kilograms to pounds
-   float kilograms, pounds;
-   kilograms = (Float.valueOf (kgAsStr).floatValue ());
-   pounds = (float) (kilograms * 2.205);
-   pounds= (float) (Math.round(pounds * degree) / degree);
-
-
-   return(pounds);
+   float num1, num2; // temporary variables
+   int n; // temporary variable
+   // Round to 2 digits past decimal
+   num1 = (Float.valueOf (kgAsStr).floatValue ());
+   n    = Math.round(num1 * (float)100.0);
+   num1 = (float) (n / (float)100.0);
+   // Convert
+   num2 = (float) (num1 * 2.205);
+   // Back to 2 digits
+   n    = Math.round(num2 * (float)100.0);
+   num2 = (float) (n / (float)100.0);
+   return(num2);
 }
     
     /**
@@ -538,6 +619,7 @@ private float convertK2Lb (String kgAsStr)
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JSlider jSlider1;
     private javax.swing.JComboBox<String> units;
     private javax.swing.JTextField unitsCon;
     // End of variables declaration//GEN-END:variables
