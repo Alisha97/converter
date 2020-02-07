@@ -97,6 +97,11 @@ public class ConverterTool extends javax.swing.JFrame {
         jSlider1.setPaintLabels(true);
         jSlider1.setPaintTicks(true);
         jSlider1.setPreferredSize(new java.awt.Dimension(300, 56));
+        jSlider1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSlider1StateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -340,13 +345,43 @@ public class ConverterTool extends javax.swing.JFrame {
      * to the text saying to choose and sets all text fields to blank
      */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
         units.setSelectedItem("Select Base Unit");
         unitsCon.setText("");
         baseValue.setText("0");
         convertedValue.setText("0");
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    
+    
+    /*
+     * This method monitors the changing of the slider tool that allows rounding
+     * from 0-4 decimal places on both the base value input and the converted
+     * value's answer.
+     */
+    private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
+        if (jSlider1.getValue() == 0) {
+            baseValue.setText(String.format("%.0f", Double.parseDouble(baseValue.getText())));
+            convertedValue.setText(String.format("%.0f", Double.parseDouble(baseValue.getText())));
+        }
+        else if (jSlider1.getValue() == 1) {
+            baseValue.setText(String.format("%.1f", Double.parseDouble(baseValue.getText())));
+            convertedValue.setText(String.format("%.1f", Double.parseDouble(baseValue.getText())));
+        }
+        else if (jSlider1.getValue() == 2) {
+            baseValue.setText(String.format("%.2f", Double.parseDouble(baseValue.getText())));
+            convertedValue.setText(String.format("%.2f", Double.parseDouble(baseValue.getText())));
+        }
+        else if (jSlider1.getValue() == 3) {
+            baseValue.setText(String.format("%.3f", Double.parseDouble(baseValue.getText())));
+            convertedValue.setText(String.format("%.3f", Double.parseDouble(baseValue.getText())));
+        }
+        else {
+            baseValue.setText(String.format("%.4f", Double.parseDouble(baseValue.getText())));
+            convertedValue.setText(String.format("%.4f", Double.parseDouble(baseValue.getText())));
+        }
+    }//GEN-LAST:event_jSlider1StateChanged
+
+    
 private float convertF2C (String FAsStr)
 {  // Convert farenheit to celsius
    float farenheit, celsius;
