@@ -10,7 +10,9 @@
  */
 public class ConverterTool extends javax.swing.JFrame {
 
-    double degree = 10000;
+    private float baseVal= 0;
+    private float convertedVal= 0;
+    private int sliderVal= 4;
 
     /**
      * Creates new form ConverterTool
@@ -234,55 +236,63 @@ public class ConverterTool extends javax.swing.JFrame {
      * the base unit and then will use a method from below for the conversion
      * formula and place in the converted unit's text box.
      */
-    private void baseValueKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_baseValueKeyReleased
-        if(units.getSelectedItem().toString().equals("Fahrenheit (Fº)")){
-            convertedValue.setText(Float.toString(convertF2C(baseValue.getText())));
+    private void baseValueKeyReleased(java.awt.event.KeyEvent evt) {
+	//GEN-FIRST:event_baseValueKeyReleased
+        if(baseValue.getText().length() < 1){
+            System.out.println("Invalid Text Field");
+        }else{
+	    setBaseVal(Float.valueOf(baseValue.getText()).floatValue());
+        
+	    if(units.getSelectedItem().toString().equals("Fahrenheit (Fº)")){
+		setConvertedVal(convertF2C(getBaseVal()));
+	    }
+	    else if (units.getSelectedItem().toString().equals("Celsius (Cº)")){
+		setConvertedVal(convertC2F(getBaseVal()));
+	    }
+	    else if (units.getSelectedItem().toString().equals("Inch (in)")){
+		setConvertedVal(convertIn2Cm(getBaseVal()));
+	    }
+	    else if (units.getSelectedItem().toString().equals("Centimeter (cm)")){
+		setConvertedVal(convertCm2In(getBaseVal()));
+	    }
+	    else if (units.getSelectedItem().toString().equals("Feet (ft)")){
+		setConvertedVal(convertF2M(getBaseVal()));
+	    }
+	    else if (units.getSelectedItem().toString().equals("Meter (m)")){
+		setConvertedVal(convertM2F(getBaseVal()));
+	    }
+	    else if (units.getSelectedItem().toString().equals("Mile (mi)")){
+		setConvertedVal(convertM2K(getBaseVal()));
+	    }
+	    else if (units.getSelectedItem().toString().equals("Kilometer (km)")){
+		setConvertedVal(convertK2M(getBaseVal()));
+	    }
+	    else if (units.getSelectedItem().toString().equals("Gallon (gal)")){
+		setConvertedVal(convertG2L(getBaseVal()));
+	    }
+	    else if (units.getSelectedItem().toString().equals("Liter (L)")){
+		setConvertedVal(convertL2G(getBaseVal()));
+	    }
+	    else if (units.getSelectedItem().toString().equals("Ounce (oz)")){
+		setConvertedVal(convertOz2G(getBaseVal()));
+	    }
+	    else if (units.getSelectedItem().toString().equals("Gram (g)")){
+		setConvertedVal(convertG2Oz(getBaseVal()));
+	    }
+	    else if (units.getSelectedItem().toString().equals("Pound (lb)")){
+		setConvertedVal(convertLb2K(getBaseVal()));
+	    }
+	    else if (units.getSelectedItem().toString().equals("Kilogram (kg)")){
+		setConvertedVal(convertK2Lb(getBaseVal()));
+	    }  
+	    else if (units.getSelectedItem().toString().equals("Kilometers/hour (km/h)")){
+		setConvertedVal(convertK2M(getBaseVal()));
+	    }  
+	    else if (units.getSelectedItem().toString().equals("Miles/hour (mph)")){
+		setConvertedVal(convertM2K(getBaseVal()));
+	    }
+	    convertedValue.setText(myFormat(getSliderVal(), getConvertedVal()));
         }
-        else if (units.getSelectedItem().toString().equals("Celsius (Cº)")){
-            convertedValue.setText(Float.toString(convertC2F(baseValue.getText())));
-        }
-        else if (units.getSelectedItem().toString().equals("Inch (in)")){
-           convertedValue.setText(Float.toString(convertIn2Cm(baseValue.getText())));
-        }
-        else if (units.getSelectedItem().toString().equals("Centimeter (cm)")){
-            convertedValue.setText(Float.toString(convertCm2In(baseValue.getText())));
-        }
-        else if (units.getSelectedItem().toString().equals("Feet (ft)")){
-           convertedValue.setText(Float.toString(convertF2M(baseValue.getText())));
-        }
-        else if (units.getSelectedItem().toString().equals("Meter (m)")){
-           convertedValue.setText(Float.toString(convertM2F(baseValue.getText())));
-        }
-        else if (units.getSelectedItem().toString().equals("Mile (mi)")){
-            convertedValue.setText(Float.toString(convertM2K(baseValue.getText())));
-        }
-        else if (units.getSelectedItem().toString().equals("Kilometer (km)")){
-            convertedValue.setText(Float.toString(convertK2M(baseValue.getText())));
-        }
-        else if (units.getSelectedItem().toString().equals("Gallon (gal)")){
-           convertedValue.setText(Float.toString(convertG2L(baseValue.getText())));
-        }
-        else if (units.getSelectedItem().toString().equals("Liter (L)")){
-           convertedValue.setText(Float.toString(convertL2G(baseValue.getText())));
-        }
-        else if (units.getSelectedItem().toString().equals("Ounce (oz)")){
-           convertedValue.setText(Float.toString(convertOz2G(baseValue.getText())));
-        }
-        else if (units.getSelectedItem().toString().equals("Gram (g)")){
-            convertedValue.setText(Float.toString(convertG2Oz(baseValue.getText())));
-        }
-        else if (units.getSelectedItem().toString().equals("Pound (lb)")){
-            convertedValue.setText(Float.toString(convertLb2K(baseValue.getText())));
-        }
-        else if (units.getSelectedItem().toString().equals("Kilogram (kg)")){
-           convertedValue.setText(Float.toString(convertK2Lb(baseValue.getText())));
-        }  
-        else if (units.getSelectedItem().toString().equals("Kilometers/hour (km/h)")){
-           convertedValue.setText(Float.toString(convertK2M(baseValue.getText())));
-        }  
-        else if (units.getSelectedItem().toString().equals("Miles/hour (mph)")){
-           convertedValue.setText(Float.toString(convertM2K(baseValue.getText())));
-        } 
         
     }//GEN-LAST:event_baseValueKeyReleased
 
@@ -292,51 +302,24 @@ public class ConverterTool extends javax.swing.JFrame {
      * the converted unit for ease of read functionality.
      */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        units.setSelectedItem(unitsCon.getText());
-        baseValue.setText(convertedValue.getText());
+        //switch text fields
+	System.out.println(tempString);
+	if(tempString.equals("Select Base Unit")){
+		unitsCon.setText(" ");
+	}
+	else{
+	    units.setSelectedItem(unitsCon.getText());
+	    unitsCon.setText(tempString);
+	}
+		
+	//switch input fields
+        baseValue.setText(myFormat(jSlider1.getValue(), getBaseVal()));
+        convertedValue.setText(myFormat(jSlider1.getValue(), getConvertedVal()));
         
-        if(units.getSelectedItem().toString().equals("Fahrenheit (Fº)")){
-            convertedValue.setText(Float.toString(convertF2C(baseValue.getText())));
-        }
-        else if (units.getSelectedItem().toString().equals("Celsius (Cº)")){
-            convertedValue.setText(Float.toString(convertC2F(baseValue.getText())));
-        }
-        else if (units.getSelectedItem().toString().equals("Inch (in)")){
-           convertedValue.setText(Float.toString(convertIn2Cm(baseValue.getText())));
-        }
-        else if (units.getSelectedItem().toString().equals("Centimeter (cm)")){
-            convertedValue.setText(Float.toString(convertCm2In(baseValue.getText())));
-        }
-        else if (units.getSelectedItem().toString().equals("Feet (ft)")){
-           convertedValue.setText(Float.toString(convertF2M(baseValue.getText())));
-        }
-        else if (units.getSelectedItem().toString().equals("Meter (m)")){
-           convertedValue.setText(Float.toString(convertM2F(baseValue.getText())));
-        }
-        else if (units.getSelectedItem().toString().equals("Mile (mi)")){
-            convertedValue.setText(Float.toString(convertM2K(baseValue.getText())));
-        }
-        else if (units.getSelectedItem().toString().equals("Kilometer (km)")){
-            convertedValue.setText(Float.toString(convertK2M(baseValue.getText())));
-        }
-        else if (units.getSelectedItem().toString().equals("Gallon (gal)")){
-           convertedValue.setText(Float.toString(convertG2L(baseValue.getText())));
-        }
-        else if (units.getSelectedItem().toString().equals("Liter (L)")){
-           convertedValue.setText(Float.toString(convertL2G(baseValue.getText())));
-        }
-        else if (units.getSelectedItem().toString().equals("Ounce (oz)")){
-           convertedValue.setText(Float.toString(convertOz2G(baseValue.getText())));
-        }
-        else if (units.getSelectedItem().toString().equals("Gram (g)")){
-            convertedValue.setText(Float.toString(convertG2Oz(baseValue.getText())));
-        }
-        else if (units.getSelectedItem().toString().equals("Pound (lb)")){
-            convertedValue.setText(Float.toString(convertLb2K(baseValue.getText())));
-        }
-        else if (units.getSelectedItem().toString().equals("Kilogram (kg)")){
-           convertedValue.setText(Float.toString(convertK2Lb(baseValue.getText())));
-        }  
+        //swap the private variables
+        float tempFloat= getConvertedVal();
+        setConvertedVal(getBaseVal());
+        setBaseVal(tempFloat);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /*
@@ -345,10 +328,15 @@ public class ConverterTool extends javax.swing.JFrame {
      * to the text saying to choose and sets all text fields to blank
      */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        //reset text fields 
         units.setSelectedItem("Select Base Unit");
         unitsCon.setText("");
         baseValue.setText("0");
         convertedValue.setText("0");
+        
+        //reset values
+        setBaseVal(0);
+        setConvertedVal(0);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     
@@ -359,184 +347,160 @@ public class ConverterTool extends javax.swing.JFrame {
      * value's answer.
      */
     private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
-        if (jSlider1.getValue() == 0) {
-            baseValue.setText(String.format("%.0f", Double.parseDouble(baseValue.getText())));
-            convertedValue.setText(String.format("%.0f", Double.parseDouble(convertedValue.getText())));
-        }
-        else if (jSlider1.getValue() == 1) {
-            baseValue.setText(String.format("%.1f", Double.parseDouble(baseValue.getText())));
-            convertedValue.setText(String.format("%.1f", Double.parseDouble(convertedValue.getText())));
-        }
-        else if (jSlider1.getValue() == 2) {
-            baseValue.setText(String.format("%.2f", Double.parseDouble(baseValue.getText())));
-            convertedValue.setText(String.format("%.2f", Double.parseDouble(convertedValue.getText())));
-        }
-        else if (jSlider1.getValue() == 3) {
-            baseValue.setText(String.format("%.3f", Double.parseDouble(baseValue.getText())));
-            convertedValue.setText(String.format("%.3f", Double.parseDouble(convertedValue.getText())));
-        }
-        else {
-            baseValue.setText(String.format("%.4f", Double.parseDouble(baseValue.getText())));
-            convertedValue.setText(String.format("%.4f", Double.parseDouble(convertedValue.getText())));
-        }
+            //set private variable
+            setSliderVal(((int) jSlider1.getValue()));
+            
+            //format text boxes
+            baseValue.setText(myFormat(getSliderVal(), getBaseVal()));
+            convertedValue.setText(myFormat(getSliderVal(), getConvertedVal()));
     }//GEN-LAST:event_jSlider1StateChanged
-
     
-private float convertF2C (String FAsStr)
+    //Helper method to set decimal precision with variable
+    public static String myFormat(int precision, Object... args){
+    String form = "%."+precision+"f\n";
+    return String.format(form, args);
+}
+    public float getBaseVal() {
+        return baseVal;
+    }
+
+    public void setBaseVal(float baseVal) {
+        this.baseVal = baseVal;
+    }
+
+    public float getConvertedVal() {
+        return convertedVal;
+    }
+
+    public void setConvertedVal(float convertedVal) {
+        this.convertedVal = convertedVal;
+    }
+
+    public int getSliderVal() {
+        return sliderVal;
+    }
+
+    public void setSliderVal(int sliderVal) {
+        this.sliderVal = sliderVal;
+    }
+    
+/* Converter Methods */    
+private float convertF2C (float base)
 {  // Convert farenheit to celsius
-   float farenheit, celsius;
-   farenheit = (Float.valueOf(FAsStr).floatValue());
-   celsius = (float) ( ( (farenheit-32.0) * 5.0) / 9.0);
-   celsius= (float) (Math.round(celsius * degree) / degree);
+   float converted= (float) ( ( (base-32.0) * 5.0) / 9.0);
+   setConvertedVal(converted);
    
-   return (celsius);
+   return converted;
 }
 
-private float convertC2F (String CAsStr)
+private float convertC2F (float base)
 {  // Convert celsius to farenheit
-   float celsius, fahrenheit;
-   celsius = (Float.valueOf (CAsStr).floatValue ());
-   fahrenheit = (float) ( (celsius * 9.0 / 5.0) + 32.0);
-   fahrenheit= (float) (Math.round(fahrenheit * degree) / degree);
-
+   float converted= (float) ( (base * 9.0 / 5.0) + 32.0);
+   setConvertedVal(converted);
    
-   return(fahrenheit);
+   return converted;
 }
 
 // small distance
-private float convertIn2Cm (String inAsStr)
+private float convertIn2Cm (float base)
 {  // Convert inches to centimeters
-   float inches, centimeters; 
-   inches = (Float.valueOf (inAsStr).floatValue ());
-   centimeters = (float) (inches * 2.54);
-   centimeters= (float) (Math.round(centimeters * degree) / degree);
-
+   float converted= (float) (base * 2.54);
+   setConvertedVal(converted);
    
-   return(centimeters);
+   return converted;
 }
 
-private float convertCm2In (String cmAsStr)
+private float convertCm2In (float base)
 {  // Convert centimeters to inches
-   float centimeters, inches;
-   centimeters = (Float.valueOf (cmAsStr).floatValue ());
-   inches = (float) (centimeters * 0.3937);
+   float converted= (float) (base * 0.3937);
+   setConvertedVal(converted);
    
-   return(inches);
+   return converted;
 }
 
 // medium distance
-private float convertF2M (String ftAsStr)
+private float convertF2M (float base)
 {  // Convert feet to meters
-   float feet, meters;
-   feet = (Float.valueOf (ftAsStr).floatValue ());
-   meters = (float) (feet * 0.3048);
-   meters= (float) (Math.round(meters * degree) / degree);
-
+   float converted= (float) (base * 0.3048);
+   setConvertedVal(converted);
    
-   return(meters);
+   return converted;
 }
 
-private float convertM2F (String mAsStr)
+private float convertM2F (float base)
 {  // Convert meters to feet
-   float meters, feet;
-   meters = (Float.valueOf (mAsStr).floatValue ());
-   feet = (float) (meters / 0.6048);
-   feet= (float) (Math.round(feet * degree) / degree);
-
+   float converted= (float) (base / 0.6048);
+   setConvertedVal(converted);
    
-   return(feet);
+   return converted;
 }
 
 // large distance
-private float convertM2K (String miAsStr)
+private float convertM2K (float base)
 {  // Convert miles to kilometers
-   float miles, kilometers;
-   miles = (Float.valueOf (miAsStr).floatValue ());
-   kilometers = (float) (miles * 1.609);
-   kilometers= (float) (Math.round(kilometers * degree) / degree);
-
-
-   return(kilometers);
+   float converted= (float) (base * 1.609);
+   setConvertedVal(converted);
+   
+   return converted;
 }
 
-private float convertK2M (String kmAsStr)
+private float convertK2M (float base)
 {  // Convert kilometers to miles
-   float kilometers, miles;
-   kilometers = (Float.valueOf (kmAsStr).floatValue ());
-   miles = (float) (kilometers * 0.6214);
-   miles= (float) (Math.round(miles * degree) / degree);
-
-
-   return(miles);
+   float converted= (float) (base * 0.6214);
+   setConvertedVal(converted);
+   
+   return converted;
 }
 
 // volume
-private float convertG2L (String galAsStr)
+private float convertG2L (float base)
 {  // Convert gallons to liters
-   float gallons, liters;
-   gallons = (Float.valueOf (galAsStr).floatValue ());
-   liters = (float) (gallons * 3.785);
-   liters= (float) (Math.round(liters * degree) / degree);
-
-
-   return(liters);
+   float converted= (float) (base * 3.785);
+   setConvertedVal(converted);
+   
+   return converted;
 }
 
-private float convertL2G (String LAsStr)
+private float convertL2G (float base)
 {  // Convert liters to gallons
-   float liters, gallons;
-   liters = (Float.valueOf (LAsStr).floatValue ());
-   gallons = (float) (liters / 3.785);
-   gallons= (float) (Math.round(gallons * degree) / degree);
-
-  
-   return(gallons);
+   float converted= (float) (base / 3.785);
+   setConvertedVal(converted);
+   
+   return converted;
 }
 
 // small weight
-private float convertOz2G (String ozAsStr)
+private float convertOz2G (float base)
 {  // Convert ounces to grams
-   float ounces, grams;
-   ounces = (Float.valueOf (ozAsStr).floatValue ());
-   grams = (float) (ounces * 28.35);
-   grams= (float) (Math.round(grams * degree) / degree);
-
-
-   return(grams);
+   float converted= (float) (base * 28.35);
+   setConvertedVal(converted);
+   
+   return converted;
 }
 
-private float convertG2Oz (String gAsStr)
+private float convertG2Oz (float base)
 {  // Convert grams to ounces
-   float grams, ounces;
-   grams = (Float.valueOf (gAsStr).floatValue ());
-   ounces = (float) (grams / 28.35);
-   ounces= (float) (Math.round(ounces * degree) / degree);
-
-
-   return(ounces);
+   float converted= (float) (base / 28.35);
+   setConvertedVal(converted);
+   
+   return converted;
 }
 
 // medium weight
-private float convertLb2K (String lbAsStr)
+private float convertLb2K (float base)
 {  // Convert pounds to kilograms
-   float pounds, kilograms;
-   pounds = (Float.valueOf (lbAsStr).floatValue ());
-   kilograms = (float) (pounds * 0.4536);
-   kilograms= (float) (Math.round(kilograms * degree) / degree);
-
-
-   return(kilograms);
+   float converted= (float) (base * 0.4536);
+   setConvertedVal(converted);
+   
+   return converted;
 }
 
-private float convertK2Lb (String kgAsStr)
+private float convertK2Lb (float base)
 {  // Convert kilograms to pounds
-   float kilograms, pounds;
-   kilograms = (Float.valueOf (kgAsStr).floatValue ());
-   pounds = (float) (kilograms * 2.205);
-   pounds= (float) (Math.round(pounds * degree) / degree);
-
-
-   return(pounds);
+   float converted= (float) (base * 2.205);
+   setConvertedVal(converted);
+   
+   return converted;
 }
     
     /**
