@@ -302,24 +302,15 @@ public class ConverterTool extends javax.swing.JFrame {
      * the converted unit for ease of read functionality.
      */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //switch text fields
-	String tempString= units.getSelectedItem().toString();
-	if(tempString.equals("Select Base Unit")){
-		unitsCon.setText(" ");
-	}
-	else{
-	    units.setSelectedItem(unitsCon.getText());
-	    unitsCon.setText(tempString);
-	}
-		
-	//switch input fields
-        baseValue.setText(myFormat(jSlider1.getValue(), getBaseVal()));
-        convertedValue.setText(myFormat(jSlider1.getValue(), getConvertedVal()));
-        
+	//switch text fields
+        units.setSelectedItem(unitsCon.getText());
+        baseValue.setText(convertedValue.getText());
+	convertedValue.setText(myFormat(getSliderVal(),getBaseVal()));
+	
         //swap the private variables
         float tempFloat= getConvertedVal();
         setConvertedVal(getBaseVal());
-        setBaseVal(tempFloat);
+        setBaseVal(tempFloat);	
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /*
