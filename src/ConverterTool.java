@@ -61,6 +61,7 @@ public class ConverterTool extends javax.swing.JFrame {
 
         baseValue.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         baseValue.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+	baseValue.setEditable(false);
         baseValue.setText("0");
         baseValue.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -229,6 +230,9 @@ public class ConverterTool extends javax.swing.JFrame {
         else if (units.getSelectedItem().toString().equals("Miles/hour (mph)")){
             unitsCon.setText("Kilometers/hour (kmh)");
         }
+	if(!units.getSelectedItem().toString().equals("Select Base Unit")){
+            baseValue.setEditable(true);
+        }    
     }//GEN-LAST:event_unitsActionPerformed
     
     /*
