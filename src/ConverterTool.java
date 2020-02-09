@@ -57,12 +57,12 @@ public class ConverterTool extends javax.swing.JFrame {
         convertedValue.setEditable(false);
         convertedValue.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         convertedValue.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        convertedValue.setText("0");
+        convertedValue.setText("");
 
         baseValue.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         baseValue.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 	baseValue.setEditable(false);
-        baseValue.setText("0");
+        baseValue.setText("");
         baseValue.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 baseValueKeyReleased(evt);
@@ -326,8 +326,8 @@ public class ConverterTool extends javax.swing.JFrame {
         //reset text fields 
         units.setSelectedItem("Select Base Unit");
         unitsCon.setText("");
-        baseValue.setText("0");
-        convertedValue.setText("0");
+        baseValue.setText("");
+        convertedValue.setText("");
         
         //reset values
         setBaseVal(0);
