@@ -224,11 +224,11 @@ public class ConverterTool extends javax.swing.JFrame {
         else if (units.getSelectedItem().toString().equals("Kilogram (kg)")){
             unitsCon.setText("Pound (lb)");
         }  
-        else if (units.getSelectedItem().toString().equals("Kilometers/hour (kmh)")){
+        else if (units.getSelectedItem().toString().equals("Kilometers/hour (km/h)")){
             unitsCon.setText("Miles/hour (mph)");
         }
         else if (units.getSelectedItem().toString().equals("Miles/hour (mph)")){
-            unitsCon.setText("Kilometers/hour (kmh)");
+            unitsCon.setText("Kilometers/hour (km/h)");
         }
 	if(!units.getSelectedItem().toString().equals("Select Base Unit")){
             baseValue.setEditable(true);
@@ -295,7 +295,7 @@ public class ConverterTool extends javax.swing.JFrame {
 	    else if (units.getSelectedItem().toString().equals("Miles/hour (mph)")){
 		setConvertedVal(convertM2K(getBaseVal()));
 	    }
-	    convertedValue.setText(myFormat(getSliderVal(), getConvertedVal()));
+	    convertedValue.setText(decimalConverter(getSliderVal(), getConvertedVal()));
         }
         
     }//GEN-LAST:event_baseValueKeyReleased
@@ -309,7 +309,7 @@ public class ConverterTool extends javax.swing.JFrame {
 	//switch text fields
         units.setSelectedItem(unitsCon.getText());
         baseValue.setText(convertedValue.getText());
-	convertedValue.setText(myFormat(getSliderVal(),getBaseVal()));
+	convertedValue.setText(decimalConverter(getSliderVal(),getBaseVal()));
 	
         //swap the private variables
         float tempFloat= getConvertedVal();
@@ -346,12 +346,12 @@ public class ConverterTool extends javax.swing.JFrame {
             setSliderVal(((int) jSlider1.getValue()));
             
             //format text boxes
-            baseValue.setText(myFormat(getSliderVal(), getBaseVal()));
-            convertedValue.setText(myFormat(getSliderVal(), getConvertedVal()));
+            baseValue.setText(decimalConverter(getSliderVal(), getBaseVal()));
+            convertedValue.setText(decimalConverter(getSliderVal(), getConvertedVal()));
     }//GEN-LAST:event_jSlider1StateChanged
     
     //Helper method to set decimal precision with variable
-    public static String myFormat(int precision, Object... args){
+    public static String decimalConverter(int precision, Object... args){
     String form = "%."+precision+"f\n";
     return String.format(form, args);
 }
