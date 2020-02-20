@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  *
- * @author chris
+ * @author Chris Alves, Jake Sanchez, Alisha Saiyed
  */
 public class ConverterMethodsTest {
     
@@ -46,7 +46,7 @@ public class ConverterMethodsTest {
         ConverterMethods instance = new ConverterMethods();
         float expResult = 0.0F;
         float result = instance.convertF2C(base);
-        assertEquals(expResult, result, 0.0);
+        assertEquals(expResult, result);
     }
 
     /**
@@ -59,7 +59,7 @@ public class ConverterMethodsTest {
         ConverterMethods instance = new ConverterMethods();
         float expResult = 0.0F;
         float result = instance.convertC2F(base);
-        assertEquals(expResult, result, 0.0);
+        assertEquals(expResult, result);
     }
 
     /**
@@ -72,7 +72,7 @@ public class ConverterMethodsTest {
         ConverterMethods instance = new ConverterMethods();
         float expResult = 0.0F;
         float result = instance.convertIn2Cm(base);
-        assertEquals(expResult, result, 0.0);
+        assertEquals(expResult, result);
     }
 
     /**
@@ -85,9 +85,7 @@ public class ConverterMethodsTest {
         ConverterMethods instance = new ConverterMethods();
         float expResult = 0.0F;
         float result = instance.convertCm2In(base);
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result);
     }
 
     /**
@@ -100,9 +98,7 @@ public class ConverterMethodsTest {
         ConverterMethods instance = new ConverterMethods();
         float expResult = 0.0F;
         float result = instance.convertF2M(base);
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result);
     }
 
     /**
@@ -115,9 +111,7 @@ public class ConverterMethodsTest {
         ConverterMethods instance = new ConverterMethods();
         float expResult = 0.0F;
         float result = instance.convertM2F(base);
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result);
     }
 
     /**
@@ -131,8 +125,7 @@ public class ConverterMethodsTest {
         float expResult = 0.0F;
         float result = instance.convertM2K(base);
         assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       
     }
 
     /**
@@ -145,9 +138,7 @@ public class ConverterMethodsTest {
         ConverterMethods instance = new ConverterMethods();
         float expResult = 0.0F;
         float result = instance.convertK2M(base);
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result);
     }
 
     /**
@@ -161,8 +152,7 @@ public class ConverterMethodsTest {
         float expResult = 0.0F;
         float result = instance.convertG2L(base);
         assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -175,9 +165,7 @@ public class ConverterMethodsTest {
         ConverterMethods instance = new ConverterMethods();
         float expResult = 0.0F;
         float result = instance.convertL2G(base);
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result);
     }
 
     /**
@@ -191,8 +179,7 @@ public class ConverterMethodsTest {
         float expResult = 0.0F;
         float result = instance.convertOz2G(base);
         assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
@@ -205,9 +192,7 @@ public class ConverterMethodsTest {
         ConverterMethods instance = new ConverterMethods();
         float expResult = 0.0F;
         float result = instance.convertG2Oz(base);
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result);
     }
 
     /**
@@ -220,9 +205,7 @@ public class ConverterMethodsTest {
         ConverterMethods instance = new ConverterMethods();
         float expResult = 0.0F;
         float result = instance.convertLb2K(base);
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result);
     }
 
     /**
@@ -235,9 +218,7 @@ public class ConverterMethodsTest {
         ConverterMethods instance = new ConverterMethods();
         float expResult = 0.0F;
         float result = instance.convertK2Lb(base);
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result);
     }
     
 }
