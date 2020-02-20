@@ -47,8 +47,6 @@ public class ConverterMethodsTest {
         float expResult = 0.0F;
         float result = instance.convertF2C(base);
         assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -62,8 +60,6 @@ public class ConverterMethodsTest {
         float expResult = 0.0F;
         float result = instance.convertC2F(base);
         assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -77,8 +73,6 @@ public class ConverterMethodsTest {
         float expResult = 0.0F;
         float result = instance.convertIn2Cm(base);
         assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
