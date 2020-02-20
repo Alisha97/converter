@@ -79,12 +79,9 @@ public class ConverterMethodsTest {
     public void testConvertCm2In() {
         System.out.println("convertCm2In");
         ConverterMethods instance = new ConverterMethods();
-	-39.37
-	    0.0
-	    39.37
-        assertEquals(expResult, instance.convertCm2In(-100));
-	assertEquals(expResult, instance.convertCm2In(0));
-	assertEquals(expResult, instance.convertCm2In(100));
+    assertEquals(-39.37, instance.convertCm2In(-100));
+	assertEquals(0.0, instance.convertCm2In(0));
+	assertEquals(39.37, instance.convertCm2In(100));
     }
 
     /**
