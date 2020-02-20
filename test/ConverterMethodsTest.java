@@ -42,11 +42,10 @@ public class ConverterMethodsTest {
     @Test
     public void testConvertF2C() {
         System.out.println("convertF2C");
-        float base = 0.0F;
         ConverterMethods instance = new ConverterMethods();
-        float expResult = 0.0F;
-        float result = instance.convertF2C(base);
-        assertEquals(expResult, result);
+	assertEquals(-73.333336, instance.convertF2C(-100));
+	assertEquals(-17.777779, instance.convertF2C(0));
+	assertEquals(37.77778, instance.convertF2C(100));
     }
 
     /**
@@ -55,11 +54,10 @@ public class ConverterMethodsTest {
     @Test
     public void testConvertC2F() {
         System.out.println("convertC2F");
-        float base = 0.0F;
         ConverterMethods instance = new ConverterMethods();
-        float expResult = 0.0F;
-        float result = instance.convertC2F(base);
-        assertEquals(expResult, result);
+        assertEquals(-148.0, instance.convertC2F(-100));
+	assertEquals(32.0, instance.convertC2F(0));
+	assertEquals(212.0, instance.convertC2F(100));
     }
 
     /**
@@ -68,11 +66,10 @@ public class ConverterMethodsTest {
     @Test
     public void testConvertIn2Cm() {
         System.out.println("convertIn2Cm");
-        float base = 0.0F;
         ConverterMethods instance = new ConverterMethods();
-        float expResult = 0.0F;
-        float result = instance.convertIn2Cm(base);
-        assertEquals(expResult, result);
+        assertEquals(-254.0, instance.convertIn2Cm(-100));
+	assertEquals(0.0, instance.convertIn2Cm(0));
+	assertEquals(254.0, instance.convertIn2Cm(100));
     }
 
     /**
@@ -81,11 +78,13 @@ public class ConverterMethodsTest {
     @Test
     public void testConvertCm2In() {
         System.out.println("convertCm2In");
-        float base = 0.0F;
         ConverterMethods instance = new ConverterMethods();
-        float expResult = 0.0F;
-        float result = instance.convertCm2In(base);
-        assertEquals(expResult, result);
+	-39.37
+	    0.0
+	    39.37
+        assertEquals(expResult, instance.convertCm2In(-100));
+	assertEquals(expResult, instance.convertCm2In(0));
+	assertEquals(expResult, instance.convertCm2In(100));
     }
 
     /**
@@ -94,11 +93,10 @@ public class ConverterMethodsTest {
     @Test
     public void testConvertF2M() {
         System.out.println("convertF2M");
-        float base = 0.0F;
         ConverterMethods instance = new ConverterMethods();
-        float expResult = 0.0F;
-        float result = instance.convertF2M(base);
-        assertEquals(expResult, result);
+	assertEquals(-30.48, instance.convertF2M(-100));
+	assertEquals(0.0, instance.convertF2M(0));
+	assertEquals(30.48, instance.convertF2M(100));
     }
 
     /**
@@ -107,11 +105,10 @@ public class ConverterMethodsTest {
     @Test
     public void testConvertM2F() {
         System.out.println("convertM2F");
-        float base = 0.0F;
         ConverterMethods instance = new ConverterMethods();
-        float expResult = 0.0F;
-        float result = instance.convertM2F(base);
-        assertEquals(expResult, result);
+	assertEquals(-165.34392, instance.convertM2F(-100));
+	assertEquals(0.0, instance.convertM2F(0));
+	assertEquals(165.34392, instance.convertM2F(100));
     }
 
     /**
@@ -120,11 +117,10 @@ public class ConverterMethodsTest {
     @Test
     public void testConvertM2K() {
         System.out.println("convertM2K");
-        float base = 0.0F;
         ConverterMethods instance = new ConverterMethods();
-        float expResult = 0.0F;
-        float result = instance.convertM2K(base);
-        assertEquals(expResult, result, 0.0);
+	assertEquals(-160.9, instance.convertM2K(-100));
+	assertEquals(0.0, instance.convertM2K(0));
+	assertEquals(160.9, instance.convertM2K(100));
        
     }
 
@@ -134,11 +130,10 @@ public class ConverterMethodsTest {
     @Test
     public void testConvertK2M() {
         System.out.println("convertK2M");
-        float base = 0.0F;
         ConverterMethods instance = new ConverterMethods();
-        float expResult = 0.0F;
-        float result = instance.convertK2M(base);
-        assertEquals(expResult, result);
+    assertEquals(-62.14, instance.convertK2M(-100));
+	assertEquals(0.0, instance.convertK2M(0));
+	assertEquals(62.14, instance.convertK2M(100));
     }
 
     /**
@@ -147,11 +142,10 @@ public class ConverterMethodsTest {
     @Test
     public void testConvertG2L() {
         System.out.println("convertG2L");
-        float base = 0.0F;
         ConverterMethods instance = new ConverterMethods();
-        float expResult = 0.0F;
-        float result = instance.convertG2L(base);
-        assertEquals(expResult, result, 0.0);
+    assertEquals(-378.5, instance.convertG2L(-100));
+	assertEquals(0.0, instance.convertG2L(0));
+	assertEquals(378.5, instance.convertG2L(100));
 
     }
 
@@ -161,11 +155,10 @@ public class ConverterMethodsTest {
     @Test
     public void testConvertL2G() {
         System.out.println("convertL2G");
-        float base = 0.0F;
         ConverterMethods instance = new ConverterMethods();
-        float expResult = 0.0F;
-        float result = instance.convertL2G(base);
-        assertEquals(expResult, result);
+    assertEquals(-26.42008, instance.convertL2G(-100));
+	assertEquals(0.0, instance.convertL2G(0));
+	assertEquals(26.42008, instance.convertL2G(100));
     }
 
     /**
@@ -174,11 +167,13 @@ public class ConverterMethodsTest {
     @Test
     public void testConvertOz2G() {
         System.out.println("convertOz2G");
-        float base = 0.0F;
         ConverterMethods instance = new ConverterMethods();
-        float expResult = 0.0F;
-        float result = instance.convertOz2G(base);
-        assertEquals(expResult, result, 0.0);
+	
+	
+	
+    assertEquals(-2835.0, instance.convertOz2G(-100));
+	assertEquals(0.0, instance.convertOz2G(0));
+	assertEquals(2835.0, instance.convertOz2G(100));
 
     }
 
@@ -188,11 +183,10 @@ public class ConverterMethodsTest {
     @Test
     public void testConvertG2Oz() {
         System.out.println("convertG2Oz");
-        float base = 0.0F;
         ConverterMethods instance = new ConverterMethods();
-        float expResult = 0.0F;
-        float result = instance.convertG2Oz(base);
-        assertEquals(expResult, result);
+    assertEquals(-3.5273368, instance.convertG2Oz(-100));
+	assertEquals(0.0, instance.convertG2Oz(0));
+	assertEquals(3.5273368 , instance.convertG2Oz(100));
     }
 
     /**
@@ -201,11 +195,10 @@ public class ConverterMethodsTest {
     @Test
     public void testConvertLb2K() {
         System.out.println("convertLb2K");
-        float base = 0.0F;
         ConverterMethods instance = new ConverterMethods();
-        float expResult = 0.0F;
-        float result = instance.convertLb2K(base);
-        assertEquals(expResult, result);
+    assertEquals(-45.36, instance.convertLb2K(-100));
+	assertEquals(0.0, instance.convertLb2K(0));
+	assertEquals(45.36, instance.convertLb2K(100));
     }
 
     /**
@@ -214,11 +207,10 @@ public class ConverterMethodsTest {
     @Test
     public void testConvertK2Lb() {
         System.out.println("convertK2Lb");
-        float base = 0.0F;
         ConverterMethods instance = new ConverterMethods();
-        float expResult = 0.0F;
-        float result = instance.convertK2Lb(base);
-        assertEquals(expResult, result);
+    assertEquals(-220.5, instance.convertK2Lb(-100));
+	assertEquals(0.0, instance.convertK2Lb(0));
+	assertEquals(220.5, instance.convertK2Lb(100));
     }
     
 }

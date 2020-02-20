@@ -111,4 +111,10 @@ public float convertK2Lb (float base)
    
    return converted;
 }
+
+public static void main (String[] args) {
+    ConverterMethods instance= new ConverterMethods();
+    System.out.println(instance.convertK2Lb(0));
+}
+
 }
