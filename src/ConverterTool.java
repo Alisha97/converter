@@ -44,7 +44,7 @@ public class ConverterTool extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         units.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        units.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Base Unit", "Fahrenheit (Fº)", "Celsius (Cº)", "Inch (in)", "Centimeter (cm)", "Feet (ft)", "Meter (m)", "Mile (mi)", "Kilometer (km)", "Gallon (gal)", "Liter (L)", "Ounce (oz)", "Gram (g)", "Pound (lb)", "Kilogram (kg)", "Miles/hour (mph)", "Kilometers/hour (km/h)" }));
+        units.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Base Unit", "Fahrenheit (Fº)", "Celsius (Cº)", "Kelvin (K)", "Inch (in)", "Centimeter (cm)", "Feet (ft)", "Meter (m)", "Mile (mi)", "Kilometer (km)", "Gallon (gal)", "Liter (L)", "Ounce (oz)", "Gram (g)", "Pound (lb)", "Kilogram (kg)", "Miles/hour (mph)", "Kilometers/hour (km/h)", "Miles/gallon (mpg)", "Kilometers/liter (kpl)" }));
         units.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 unitsActionPerformed(evt);
@@ -53,16 +53,20 @@ public class ConverterTool extends javax.swing.JFrame {
 
         unitsCon.setEditable(false);
         unitsCon.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        unitsCon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unitsConActionPerformed(evt);
+            }
+        });
 
         convertedValue.setEditable(false);
         convertedValue.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         convertedValue.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        convertedValue.setText("");
+        convertedValue.setText("0");
 
         baseValue.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         baseValue.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-	baseValue.setEditable(false);
-        baseValue.setText("");
+        baseValue.setText("0");
         baseValue.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 baseValueKeyReleased(evt);
@@ -230,6 +234,16 @@ public class ConverterTool extends javax.swing.JFrame {
         else if (units.getSelectedItem().toString().equals("Miles/hour (mph)")){
             unitsCon.setText("Kilometers/hour (km/h)");
         }
+        else if (units.getSelectedItem().toString().equals("Miles/gallon (mpg)")){
+            unitsCon.setText("Kilometers/liter (kpl)");
+        }
+        else if (units.getSelectedItem().toString().equals("Kilometers/liter (kpl)")){
+            unitsCon.setText("Miles/gallon (mpg)");
+        }
+        else if (units.getSelectedItem().toString().equals("Kelvin (K)")){
+            unitsCon.setText("Celsius (Cº)");
+        }
+        
 	if(!units.getSelectedItem().toString().equals("Select Base Unit")){
             baseValue.setEditable(true);
         }    
@@ -295,6 +309,15 @@ public class ConverterTool extends javax.swing.JFrame {
 	    else if (units.getSelectedItem().toString().equals("Miles/hour (mph)")){
 		setConvertedVal(convertM2K(getBaseVal()));
 	    }
+            else if (units.getSelectedItem().toString().equals("Miles/gallon (mpg)")) {
+                setConvertedVal(convertMpg2Kpl(getBaseVal()));
+            }
+            else if (units.getSelectedItem().toString().equals("Kilometers/liter (kpl)")) {
+                setConvertedVal(convertKpl2Mpg(getBaseVal()));
+            }
+            else if (units.getSelectedItem().toString().equals("Kelvin (K)")) {
+                setConvertedVal(convertK2C(getBaseVal()));
+            }
 	    convertedValue.setText(decimalConverter(getSliderVal(), getConvertedVal()));
         }
         
@@ -349,6 +372,10 @@ public class ConverterTool extends javax.swing.JFrame {
             baseValue.setText(decimalConverter(getSliderVal(), getBaseVal()));
             convertedValue.setText(decimalConverter(getSliderVal(), getConvertedVal()));
     }//GEN-LAST:event_jSlider1StateChanged
+
+    private void unitsConActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unitsConActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_unitsConActionPerformed
     
     //Helper method to set decimal precision with variable
     public static String decimalConverter(int precision, Object... args){
@@ -497,6 +524,36 @@ private float convertK2Lb (float base)
    
    return converted;
 }
+
+public float convertMpg2Kpl(float base) {
+    // convert miles per gallon to kilometer per liter
+    float converted = (float) (base / 2.352);
+    setConvertedVal(converted);
+    return converted;
+}
+
+public float convertKpl2Mpg(float base) {
+    // convert kilmoeter per liter to miles per gallon
+    float converted = (float) (base * 2.352);
+    setConvertedVal(converted);
+    return converted;
+}
+
+public float convertK2C(float base) {
+    // convert kelvin to celsius
+    float converted = (float) (base - 273.15);
+    setConvertedVal(converted);
+    return converted;
+}
+
+public float convertC2K(float base) {
+    // convert celsius to kelvin
+    
+    float converted = (float) (base + 273.15);
+    setConvertedVal(converted);
+    return converted;
+}
+
     
     /**
      * @param args the command line arguments
