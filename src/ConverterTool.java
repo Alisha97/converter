@@ -62,11 +62,12 @@ public class ConverterTool extends javax.swing.JFrame {
         convertedValue.setEditable(false);
         convertedValue.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         convertedValue.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        convertedValue.setText("0");
-
+        convertedValue.setText("");
+        
+        baseValue.setEditable(false);
         baseValue.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         baseValue.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        baseValue.setText("0");
+        baseValue.setText("");
         baseValue.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 baseValueKeyReleased(evt);
@@ -330,9 +331,12 @@ public class ConverterTool extends javax.swing.JFrame {
      */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 	//switch text fields
+    	String temp = (String) units.getSelectedItem();
+    //	System.out.println(temp);
         units.setSelectedItem(unitsCon.getText());
+        unitsCon.setText(temp);
         baseValue.setText(convertedValue.getText());
-	convertedValue.setText(decimalConverter(getSliderVal(),getBaseVal()));
+	    convertedValue.setText(decimalConverter(getSliderVal(),getBaseVal()));
 	
         //swap the private variables
         float tempFloat= getConvertedVal();
